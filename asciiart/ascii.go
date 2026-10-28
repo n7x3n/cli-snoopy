@@ -75,6 +75,6 @@ func artPrinter(art string) {
 	fmt.Print("\033[H\033[2J")
 	for _, line := range lines {
 		fmt.Println(line)
-		time.Sleep(130 * time.Millisecond)
+		time.Sleep(80 * time.Millisecond)
 	}
 }

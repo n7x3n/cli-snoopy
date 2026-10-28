@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"snoopy/asciiart"
 )
 
@@ -13,14 +12,18 @@ func main() {
 	for {
 		fmt.Println("\n1. Classic Snoopy\n2. Loving Snoopy")
 		fmt.Println("For exiting, type 7")
-		fmt.Scan(&pick)
+		_, err := fmt.Scan(&pick)
+		if err != nil {
+			fmt.Println("\nExiting...")
+			return
+		}
 		switch pick {
 		case 1:
 			asciiart.Snoopy()
 		case 2:
 			asciiart.Loving()
 		case 7:
-			os.Exit(0)
+			return
 		default:
 			fmt.Println("Not supported number. You won't get your Snoopy.")
 		}
