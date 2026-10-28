@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"snoopy/asciiart"
 )
 
@@ -19,10 +20,9 @@ func main() {
 		case 2:
 			asciiart.Loving()
 		case 7:
-			return
+			os.Exit(0)
 		default:
 			fmt.Println("Not supported number. You won't get your Snoopy.")
 		}
 	}
-
 }
