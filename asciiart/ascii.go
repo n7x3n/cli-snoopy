@@ -6,13 +6,13 @@ import (
 	"time"
 )
 
-type ascii struct {
+type Ascii struct {
 	Name string
 	Art  string
 }
 
-var gallery = []ascii{
-	{Name: "classicSnoopy",
+var Gallery = []Ascii{
+	{Name: "Classic Snoopy",
 		Art: `
                         .:=**#*=:.
                     .-*@@@@@@@@#=:
@@ -38,7 +38,7 @@ var gallery = []ascii{
            .=***#%%@@@@@@@@%#-
             ....:----=-----:.`,
 	}, {
-		Name: "lovingSnoopy",
+		Name: "Loving Snoopy",
 		Art: `
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -74,13 +74,7 @@ var gallery = []ascii{
 	},
 }
 
-func Snoopy() {
-	artPrinter(gallery[0].Art)
-}
-func Loving() {
-	artPrinter(gallery[1].Art)
-}
-func artPrinter(art string) {
+func ArtPrint(art string) {
 	lines := strings.Split(art, "\n")
 	fmt.Print("\033[H\033[2J")
 	for _, line := range lines {
