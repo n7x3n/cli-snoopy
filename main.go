@@ -4,9 +4,10 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"snoopy/asciiart"
 	"strconv"
 	"strings"
+
+	"github.com/n7x3n/cli-snoopy/asciiart"
 )
 
 func main() {
