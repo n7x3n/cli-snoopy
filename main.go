@@ -8,13 +8,24 @@ import (
 	"strings"
 
 	"github.com/n7x3n/cli-snoopy/asciiart"
+	"github.com/n7x3n/cli-snoopy/selfmanage"
 )
+
+const currentVersion = "v0.1.0"
 
 func main() {
 	fmt.Print("\033[H\033[2J")
 	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Println("Hello, welcome to CLI Snoopy\nPlease, pick your Snoopy.")
+	fmt.Println("Hello, welcome to CLI Snoopy")
+	latestTag, err := selfmanage.VersionCheck()
+	if err == nil {
+		if latestTag != currentVersion {
+			fmt.Printf("New version available: %s, you can download it here: https://github.com/n7x3n/cli-snoopy/releases/\n", latestTag)
+		}
+	}
+
 	for {
+		fmt.Println("Please, pick your Snoopy.")
 		pick := 0
 		for i, art := range asciiart.Gallery {
 			fmt.Printf("%d. %s\n", i+1, art.Name)
