@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	selfmanage.WinOldPurger()
 	flags := selfmanage.HandleFlags()
 	if flags {
 		return
@@ -21,8 +22,8 @@ func main() {
 	fmt.Println("Hello, welcome to CLI Snoopy")
 	latestTag, err := selfmanage.VersionCheck()
 	if err == nil {
-		if latestTag != selfmanage.CurrentVersion {
-			fmt.Printf("New version available: %s, you can download it here: https://github.com/n7x3n/cli-snoopy/releases/\n", latestTag)
+		if latestTag.TagName != selfmanage.CurrentVersion {
+			fmt.Printf("New version available: %s, you can download it here: https://github.com/n7x3n/cli-snoopy/releases/\n", latestTag.TagName)
 		}
 	}
 
