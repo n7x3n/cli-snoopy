@@ -11,15 +11,17 @@ import (
 	"github.com/n7x3n/cli-snoopy/selfmanage"
 )
 
-const currentVersion = "v0.1.0"
-
 func main() {
+	flags := selfmanage.HandleFlags()
+	if flags {
+		return
+	}
 	fmt.Print("\033[H\033[2J")
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Println("Hello, welcome to CLI Snoopy")
 	latestTag, err := selfmanage.VersionCheck()
 	if err == nil {
-		if latestTag != currentVersion {
+		if latestTag != selfmanage.CurrentVersion {
 			fmt.Printf("New version available: %s, you can download it here: https://github.com/n7x3n/cli-snoopy/releases/\n", latestTag)
 		}
 	}

@@ -9,6 +9,7 @@ import (
 )
 
 const url = "https://api.github.com/repos/n7x3n/cli-snoopy/releases/latest"
+const CurrentVersion = "v0.1.0"
 
 type githubRelease struct {
 	TagName string `json:"tag_name"`
@@ -22,7 +23,7 @@ func VersionCheck() (string, error) {
 	}
 	req.Header.Set("User-Agent", "cli-snoopy")
 	client := &http.Client{
-		Timeout: 3 * time.Second,
+		Timeout: 2 * time.Second,
 	}
 	resp, err := client.Do(req)
 	if err != nil {
