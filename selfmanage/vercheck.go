@@ -28,7 +28,6 @@ type githubAsset struct {
 func VersionCheck() (*GithubRelease, error) {
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 	req.Header.Set("User-Agent", "cli-snoopy")
@@ -37,17 +36,14 @@ func VersionCheck() (*GithubRelease, error) {
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
-		fmt.Println("Couldn't establish connection")
 		return nil, err
 	}
 	bodyBytes, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 	var githubCall GithubRelease
