@@ -9,8 +9,8 @@
 - Cross-Platform: Linux, macOS (Apple Silicon & Intel), and Windows.
 ## 🚀 Getting Started
 ### Option 1: Download Pre-Built Binaries (Easiest)
-Download the executable for your operating system from the Releases /releases tab:
-
+Download the executable for your operating system from the Releases tab:
+  - https://github.com/n7x3n/cli-snoopy/releases 
 - Windows: Download cli-snoopy-windows-amd64.exe and run it in your terminal.
 - Linux / macOS: Download your binary, grant execution permissions, and run it:
     - ``chmod +x cli-snoopy-linux-amd64``
@@ -21,13 +21,13 @@ Download the executable for your operating system from the Releases /releases ta
 Clone this repository and run it directly:
 
 ```bash
-git clone https://github.com/[your-username]/cli-snoopy.git
+git clone https://github.com/n7x3n/cli-snoopy.git
 cd cli-snoopy
 go run .
 ```
 Or install it globally to your machine:
 ```bash
-go install github.com/[your-username]/cli-snoopy@latest
+go install github.com/n7x3n/cli-snoopy@latest
 ```
 
 ## 🛠️ Building for All Platforms
