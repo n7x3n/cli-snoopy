@@ -1,11 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CLI Snoopy documentation</title>
+    <style>
+        :root {
+            --bg-canvas: #0f1115;
+            --bg-sheet: #1a1d24;
+            --text-primary: #e6e8ec;
+            --text-secondary: #9aa0a6;
+            --border-color: #2b303c;
+            --badge-bg: #262b36;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            padding: 16px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        small {
+            color: var(--text-secondary);
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin: 16px 0;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            font-weight: 600;
+            color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            background-color: var(--badge-bg);
+            border: 1px solid var(--border-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--text-primary);
+        }
+
+        ul {
+            list-style: square;
+            margin-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        li strong {
+            color: var(--text-primary);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #161618;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #393639;
+            border-radius: 4px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello world</h1>
+
+    <main class="document-sheet">
+        <header>
+            <div>
+                <h1>CLI Snoopy</h1>
+                <p class="subtitle">Interactive terminal ASCII art viewer written in Go.</p>
+            </div>
+        </header>
+
+        <section id="usage">
+            <h2>Usage</h2>
+            <p>Launch the utility directly from your terminal by typing the path with the executable name</p>
+            <small>Renaming the tool to <code>snoopy</code> is personally recommended</small>
+            <p>Navigate the prompt by typing the artwork number (1-4) and pressing <strong>Enter</strong>. Type
+                <code>q</code> at any time to cleanly exit the program.
+            </p>
+        </section>
+
+        <section id="flags">
+            <h2>Command-Line Flags</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flag</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--version</code></td>
+                        <td>Displays the currently installed version.</td>
+                        <td><code>snoopy --version</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>--update</code></td>
+                        <td>Checks GitHub Releases and performs an in-place binary update.</td>
+                        <td><code>snoopy --update</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>--docs</code></td>
+                        <td>Launches the local documentation web server.</td>
+                        <td><code>snoopy --docs</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="gallery">
+            <h2>Included Artworks</h2>
+            <ul>
+                <li><strong>Classic Snoopy</strong></li>
+                <li><strong>Loving Snoopy</strong></li>
+                <li><strong>Joe Cool</strong> </li>
+                <li><strong>Smiling Snoopy</strong></li>
+            </ul>
+        </section>
+
+        <footer>
+            <span>Built for fun and learning Go.</span>
+            <span>Likeness belongs to <em>Peanuts</em> by Charles M. Schulz.</span>
+        </footer>
+    </main>
+
 </body>
+
 </html>
