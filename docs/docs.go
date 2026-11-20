@@ -7,7 +7,9 @@ import (
 	"net"
 	"net/http"
 	"os"
+	"os/exec"
 	"os/signal"
+	"runtime"
 	"time"
 )
 
@@ -28,6 +30,7 @@ func DocsServer() error {
 	url := fmt.Sprintf("http://%s", ip.Addr().String())
 	fmt.Printf("\nDocumentation is live at: %s\n", url)
 	fmt.Println("To exit, press Ctrl+C")
+	openBrowser(url)
 	server := &http.Server{Handler: mux}
 	go func() {
 		server.Serve(ip)
@@ -39,4 +42,25 @@ func DocsServer() error {
 	defer cancel()
 
 	return server.Shutdown(ctx)
+}
+func openBrowser(url string) {
+	var cmd string
+	var args []string
+	switch runtime.GOOS {
+	case "darwin":
+		cmd = "open"
+		args = []string{url}
+	case "windows":
+		cmd = "rundll32"
+		args = []string{"url.dll.,FileProtocolHandler", url}
+	case "linux":
+		cmd = "xdg-open"
+		args = []string{url}
+	default:
+		return
+	}
+	err := exec.Command(cmd, args...).Start()
+	if err != nil {
+		return
+	}
 }
