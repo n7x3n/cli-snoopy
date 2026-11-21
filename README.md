@@ -7,15 +7,18 @@
 - Typewriter Animation
 - Zero External Dependencies
 - Cross-Platform: Linux, macOS (Apple Silicon & Intel), and Windows.
+- Built-in Self-Updater: Update directly from GitHub Releases with flag ``--update``.
+- Offline Docs Server: Launch an embedded documentation page using the ``--docs`` flag.
 ## 🚀 Getting Started
 ### Option 1: Download Pre-Built Binaries (Easiest)
-Download the executable for your operating system from the Releases tab:
-  - https://github.com/n7x3n/cli-snoopy/releases 
+Download the executable for your operating system from the [Releases tab](https://github.com/n7x3n/cli-snoopy/releases)
 - Windows: Download cli-snoopy-windows-amd64.exe and run it in your terminal.
 - Linux / macOS: Download your binary, grant execution permissions, and run it:
     - ``chmod +x cli-snoopy-linux-amd64``
     - ``./cli-snoopy-linux-amd64``
 
+- It is recommended that the downloaded executable is renamed to snoopy
+- It is also recommended that the executable is put into ``/usr/local/bin`` on linux/macOS and to PATH on windows, so that it is runnable from any directory
 ### Option 2: Run from Source (Requires Go)
 
 Clone this repository and run it directly:

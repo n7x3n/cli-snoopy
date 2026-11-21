@@ -30,11 +30,11 @@ func DocsServer() error {
 	url := fmt.Sprintf("http://%s", ip.Addr().String())
 	fmt.Printf("\nDocumentation is live at: %s\n", url)
 	fmt.Println("To exit, press Ctrl+C")
-	openBrowser(url)
 	server := &http.Server{Handler: mux}
 	go func() {
 		server.Serve(ip)
 	}()
+	openBrowser(url)
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
@@ -52,7 +52,7 @@ func openBrowser(url string) {
 		args = []string{url}
 	case "windows":
 		cmd = "rundll32"
-		args = []string{"url.dll.,FileProtocolHandler", url}
+		args = []string{"url.dll,FileProtocolHandler", url}
 	case "linux":
 		cmd = "xdg-open"
 		args = []string{url}

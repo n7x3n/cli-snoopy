@@ -14,7 +14,7 @@ import (
 )
 
 const url = "https://api.github.com/repos/n7x3n/cli-snoopy/releases/latest"
-const CurrentVersion = "v0.1.0"
+const CurrentVersion = "v0.2.0"
 
 type GithubRelease struct {
 	TagName string        `json:"tag_name"`

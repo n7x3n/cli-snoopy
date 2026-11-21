@@ -24,7 +24,7 @@ func HandleFlags() bool {
 		return true
 	}
 	if *versionFlag {
-		fmt.Printf("cli-snoopy version %s", CurrentVersion)
+		fmt.Printf("cli-snoopy version: %s\n", CurrentVersion)
 		return true
 	}
 	if *docsFlag {
